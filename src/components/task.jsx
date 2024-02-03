@@ -17,7 +17,7 @@ export const Task = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('https://data-nuetron.onrender.com/tasks');
+      const response = await axios.get('https://datanuetron.onrender.com/tasks');
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -26,7 +26,7 @@ export const Task = () => {
 
   const fetchApiCallsCounts = async () => {
     try {
-      const response = await axios.get('https://data-nuetron.onrender.com/apiCallsCount');
+      const response = await axios.get('https://datanuetron.onrender.com/apiCallsCount');
       setApiCallsCounts(response.data);
     } catch (error) {
       console.error('Error fetching API call counts:', error);
@@ -35,7 +35,7 @@ export const Task = () => {
 
   const addTask = async () => {
     try {
-      await axios.post('https://data-nuetron.onrender.com/tasks/add', { description });
+      await axios.post('https://datanuetron.onrender.com/tasks/add', { description });
       fetchApiCallsCounts();
       fetchTasks();
       setDescription('');
@@ -46,7 +46,7 @@ export const Task = () => {
 
   const updateTask = async (id, data) => {
     try {
-      await axios.patch(`https://data-nuetron.onrender.com/tasks/update/${id}`, data);
+      await axios.patch(`https://datanuetron.onrender.com/tasks/update/${id}`, data);
       fetchApiCallsCounts();
       fetchTasks();
     } catch (error) {
@@ -58,7 +58,7 @@ export const Task = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`https://data-nuetron.onrender.com/tasks/delete/${id}`);
+      await axios.delete(`https://datanuetron.onrender.com/tasks/delete/${id}`);
       fetchApiCallsCounts();
       fetchTasks();
     } catch (error) {
